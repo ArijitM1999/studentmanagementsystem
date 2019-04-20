@@ -1,4 +1,4 @@
-# studentmanagementsystem
+# student management system
 Link: http://tyrionwayne1999.epizy.com/sms/index.php
 A basic web application on Student Management System of a college made using HTML,CSS,Bootstrap 4,Javascript,PHP.
 Phpmyadmin(MySQL) was used as database.
