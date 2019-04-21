@@ -47,7 +47,7 @@ else
 
    ?>
  
-  <form method="post" action="updatedata.php" enctype="multipart/form-data">
+  <form method="post" action="updateform.php" enctype="multipart/form-data">
 <table class="table table-dark">
   <tbody align="Center">
     <tr>
@@ -79,10 +79,6 @@ else
 </select>
         </td>
     </tr>
-     <tr>
-      <Th>Image</Th>
-    <td><input type="file" name="simg" required="required"></td>
-    </tr>
     <tr>
       <input type="hidden" name="sid" value="<?php echo($dat["id"]); ?>">
     <TD colspan="2"><input type="submit" name="submit" value="Update"></td>
@@ -94,3 +90,27 @@ else
 </div>
 </body>
 </html>
+<?php
+if(isset($_POST["submit"])){
+
+include('dbcon.php');
+$id=$_POST['sid'];
+$roll=$_POST['roll'];
+$name=$_POST['name'];
+$contact=$_POST['contact'];
+$email=$_POST['email'];
+$att=$_POST['attendance'];
+$cg=$_POST['cgpa'];
+$branch=$_POST['branch'];
+$query="UPDATE student SET roll = '$roll', name = '$name' , contact = '$contact', email = '$email', attendance = '$att', cgpa = '$cg' ,  branch = '$branch' WHERE  id = '$id'";
+$run=mysqli_query($con,$query);
+if($run==true)
+{ ?> 
+  <script> 
+  alert("data updated succesfully");
+window.history.back();
+</script>
+<?php
+}
+}
+?>
